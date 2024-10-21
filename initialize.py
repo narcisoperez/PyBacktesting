@@ -120,8 +120,8 @@ class Initialize():
 
         """
 
-        self.directory = os.path.dirname(os.path.realpath(__file__)) + '/'
-        self.dir_output = self.directory + 'results/'
+        self.directory = os.path.dirname(os.path.realpath(__file__)) + '\\'
+        self.dir_output = self.directory + 'results\\'
         self.name_out = 'results'
         self.is_fx = True
         self.asset = "EURUSD"

@@ -30,6 +30,7 @@ import math_op as mo
 import initialize as init
 import operator as op
 import math
+import pandas as pd
 
 class EntFibo():
     """
@@ -398,8 +399,10 @@ class EntFibo():
                         _entry_level = _entry_tentative
 
                     self.is_entry = True
-                    self.trades_track_ = self.trades_track_.append({self.entry_row: self.curr_row,\
-                                                            self.entry_level:_entry_level},ignore_index=True)
+                    #self.trades_track_ = self.trades_track_.concat({self.entry_row: self.curr_row,\
+                    #                                        self.entry_level:_entry_level},ignore_index=True)
+                    self.trades_track_ = pd.concat([self.trades_track_, 
+                                                    pd.DataFrame({self.entry_row: [self.curr_row], self.entry_level: [_entry_level]})], ignore_index=True)
 
                     if self.sec_op(_current_value, self.relative_extreme):
                         self.relative_extreme = _current_value
